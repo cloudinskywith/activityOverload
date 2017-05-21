@@ -1,0 +1,25 @@
+<h1>new user is here</h1>
+
+<% if(flash && flash.err) { %>
+<ul class="alert alert-success">
+  <% Object.keys(flash.err).forEach(function(err){ %>
+  <li><%- JSON.stringify(flash.err[err])%></li>
+  <% }) %>
+</ul>
+<% } %>
+
+<form action="/user/update/<%= user.id %>" method="post" class="form-signin" style="width:500px;">
+  <div class="control-group">
+    <input type="text" class="form-control" placeholder="你的名字"  name="name" value="<%= user.name%>">
+  </div>
+  <div class="control-group">
+    <input type="text" class="form-control" placeholder="你的职位" name="title" value="<%= user.title%>">
+  </div>
+  <div class="control-group">
+    <input type="text" class="form-control" placeholder="你的邮箱" name="email" value="<%= user.email%>">
+  </div>
+  <input type="submit" class="btn btn-lg btn-primary btn-block" value="编辑用户">
+  <input type="hidden" name="_csrf" value="<%= _csrf %>">
+</form>
+
+

@@ -1,0 +1,32 @@
+<h1>new user is here</h1>
+
+<% if(flash && flash.err) { %>
+<ul class="alert alert-success">
+  <% Object.keys(flash.err).forEach(function(err){ %>
+    <li><%- JSON.stringify(flash.err[err])%></li>
+  <% }) %>
+</ul>
+<% } %>
+
+<form action="/user/create" method="post" class="form-signin" style="width:500px;">
+  <div class="control-group">
+    <input type="text" class="form-control" placeholder="你的名字"  name="name">
+  </div>
+  <div class="control-group">
+    <input type="text" class="form-control" placeholder="你的职位" name="title">
+  </div>
+  <div class="control-group">
+    <input type="text" class="form-control" placeholder="你的邮箱" name="email">
+  </div>
+  <div class="control-group">
+    <input type="text" class="form-control" placeholder="你的密码" name="password">
+  </div>
+  <div class="control-group">
+    <input type="text" class="form-control" placeholder="再次确认密码" name="confirm">
+  </div>
+
+  <input type="submit" class="btn btn-lg btn-primary btn-block" value="创建用户">
+  <input type="hidden" name="_csrf" value="<%= _csrf %>">
+</form>
+
+
