@@ -144,6 +144,11 @@ model.exports = function(req,res,next){
 
 进行到13章，总之就是crud+各种web的操作，实战为王，业务栈+技术栈。
 
-npm install bcrypt --save
+
+
+### session
+sails generate controller session
+
+将http.js中的middleware开启，这些middleware都是互相依赖的所以比较蛋疼
 
 
